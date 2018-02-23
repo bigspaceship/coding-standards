@@ -17,19 +17,19 @@ Coding standards for the Big Spaceship Technology Team
 * Pull Requests for each feature to be merged reviewed by other members of the team.
 
 ## Linting
-* AirBnB EsLint
+* [AirBnB EsLint](https://github.com/bigspaceship/javascript)
 
 ## Testing
-* Jest
+* [Jest](https://facebook.github.io/jest/)
 
 ## Permissable Libraries
-* Vue
-* React
-* NextJS
+* [Vue](https://vuejs.org/)
+* [React](https://reactjs.org/)
+* [Next.js](https://github.com/zeit/next.js/)
 
 ## Recommended Tools
-* Webpack
-* Babel
+* [Webpack](https://webpack.js.org/)
+* [Babel](https://babeljs.io/)
 
 ## Files to Include in all projects
 * Custom Media Query file
