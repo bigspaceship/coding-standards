@@ -22,9 +22,11 @@ Coding standards for the Big Spaceship Technology Team
 * [Commit Message Guidelines](https://gist.github.com/robertpainsi/b632364184e70900af4ab688decf6f53)
 * Pull Requests for each feature to be merged reviewed by other members of the team.
 * Git versioning:
-  * We should attempt to follow the Semver versioning rules when tagging our projects for release. When using the BSS CLI tool or starting a new NPM project please make sure to set the version in package.json to 3 digits (1.0.0).
+  * We should attempt to follow the Semver versioning rules when tagging our projects for release. 
+  * When using the BSS CLI tool or starting a new NPM project please make sure to set the version in package.json to 3 digits (1.0.0).
+  
     | Status | Stage | Rule | Example |
-    | ---- | ---- | ---- | ---- |
+    | -- | -- | -- | -- |
     | Init Release | New Project | Should begin with ver 1 | 1.0.0 |
     | Bug fixes, minor changes | Patch release | +1 to the third digit | 1.0.1 |
     | Major changes that are build on the existing framework/codebase | Minor release | +1 to the second digit | 1.1.1 |
