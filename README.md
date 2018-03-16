@@ -13,6 +13,24 @@ Coding standards for the Big Spaceship Technology Team
 * Custom Media Queries
 
 ## Git Workflow
+* Git Flow as a Reliable Version Control Model
+
+  Please try to use the standard Git Flow control model in which we use a combination of the following branches:
+
+  |                |                         |
+  |----------------|-------------------------------|
+  |Master			 |Only contains production ready code. Commits to this branch should only come from either a release or a hotfix branch.|
+  |Develop          |One source of truth from which all feature branches should be created and checked out from.|
+  |Feature          |Follows a standard naming convention of `feature/featureName`. All new development is built here.|
+  |Release          |Branch that gets deployed to a staging environment for QA, and where all QA fixes should be done. If the team is bigger, a feature branch can be spun off this to make all required QA changes.|
+  |Hotfix          |Only emergency fixes off the master branch. Follows a similar naming convention as a feature branch|
+
+  Bellow if a quick flow model:
+
+  ![gitflow](https://user-images.githubusercontent.com/5499946/37505531-d1dd396c-28bb-11e8-921d-1124af180b3f.png)
+
+  Please remember to remove feature and hotfix branches either after a PR or after push to Prod.
+
 * [Feature Branch Workflow](https://www.atlassian.com/git/tutorials/comparing-workflows#feature-branch-workflow)
 * [Commit Message Guidelines](https://gist.github.com/robertpainsi/b632364184e70900af4ab688decf6f53)
 * Pull Requests for each feature to be merged reviewed by other members of the team.
