@@ -22,9 +22,9 @@ you can learn more about all these tags [here](https://html.com/semantic-markup/
 
 ---
 #### Accessible Rich Internet Applications (ARIA)
-- WAI-ARIA roles, states, and properties are available in a number of machine-readable formats to support validation of content using WAI-ARIA attributes.
+- These are a set of attributs to make content more accessible. WAI-ARIA roles, states, and properties are available in a number of machine-readable formats to support validation of content using WAI-ARIA attributes.
 
-- you can find list of [roles](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques#Roles)
+- here is a list of [roles](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques#Roles)
 - here is the list for [states and properties](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques#States_and_properties) 
 
 
