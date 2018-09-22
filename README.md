@@ -11,8 +11,7 @@ Coding standards for the Big Spaceship Technology Team
 
 - We write semantic markup by selecting and using HTML tags properly, and by selecting tags that convey something about the information marked by the tags. There are elements in HTML that are semantic and elements that are non-semantic. Examples of non-semantic elements are div and span.
 
-|                           |                                                   |
-| ------------------------- |---------------------------------------------------|
+
 | Document structure tags   | header, footer, main, nav , section , article     |
 | Textual meaning tags      | h1 - h6 , strong , mark , cite, blockquote , time |
 | Media type tags           | audio , video , picture                           |
