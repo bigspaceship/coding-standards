@@ -18,6 +18,8 @@ Coding standards for the Big Spaceship Technology Team
 | Media type tags           | audio , video , picture                           |
 | Correlation tags          | ul , figure , figcaption , address                |
 
+you can learn more about all these tags [here](https://html.com/semantic-markup/)
+
 
 
 ### CSS/SCSS
