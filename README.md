@@ -40,7 +40,7 @@ you can learn more about all these tags [here](https://html.com/semantic-markup/
 ### Icon Declarations
 - Create an Icons component that includes an SVG
 - Within the SVG reference all the icons with their respective symbol tags (which includes the paths)
-- Include for symbol using id="icon-{icon-name}" for 
+- For each symbol use naming convention of id="icon-{icon-name}" (see code block below)
 ```
   <svg style="position: absolute; width: 0; height: 0; overflow: hidden;" version="1.1" xmlns="http://www.w3.org/2000/svg">
     <defs>
