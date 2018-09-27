@@ -114,6 +114,58 @@ So I've moved to this next line as a way of keeping
 this declaration more legible. More coding standards
 to follow below!
 */
+
+## Font Declarations & Fallback Fonts
+
+ - Use @font-face declarations to define a custom font-family and its properties such as name, location, and style characteristics 
+ - Use font-display property and preload to control font loading behavior and reduce FOIT and FOUT. Font-display is currently not supported on IE, Edge, Opera and Android and preload is not supported on IE, Firefox, Opera and only partially on Edge. 
+  ```
+  <link rel="preload" href="/fonts/custom.woff2" as="font" type="font/woff2" crossorigin>
+  ```
+ - Aiming to support modern browsers, we use woff and woff2 formats to offer a practical level of browser support. Woff2 is supported in all browsers except IE11, Opera and Android, default to woff after
+ ```
+ @font-face {
+  font-family: 'Some Custom Font';
+  font-style: normal;
+  font-weight: normal;
+  font-display: auto;
+  src: local('Some Custom Font'),
+       url('fonts/custom.woff2') format('woff2'), 
+       url('fonts/custom.woff') format('woff')
+ }
+ ```
+- In the case that custom fonts fail to load, use web fonts linked offsite to Google Fonts. Lastly, default to system fonts
+```
+@import url(//fonts.googleapis.com/css?family=Open+Sans);
+
+body {
+  font-family: 'Some Custom Font', 'Open Sans', Tahoma;
+}
+```
+
+## Meta Tags
+
+- The meta tags below are the basic tags to be included:
+  - Title - title of the web page
+  - Meta content type - character set/language declaration
+  - Meta description - unique description of the page
+  - Viewport - specifies viewport to control width and scaling for responsive design
+  - Social meta tags - not required but can be included to enhance how the page displayed when shared on social media (Facebook uses Open Graph/Twitter uses Twitter Cards)
+```
+  <!-- Relevant tags for OG -->
+<meta property="og:title" content="Page Title" />
+<meta property="og:description" content="Page content description" />
+<meta property="og:url" content="http://domain.com/page-title/" />
+<meta property="og:image" content="/path/to/image.jpg" />
+<meta property="og:type" content="website" />
+
+  <!-- Styled Twitter Card  -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@twitter-username">
+<meta name="twitter:title" content="Page Titles">
+<meta name="twitter:description" content="Description of the page content">
+<meta name="twitter:image" content="/path/to/image.png">
+
 ```
 
 ### Javascript
