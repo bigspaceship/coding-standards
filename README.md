@@ -126,7 +126,7 @@ USAGE:
 
 ## Testing
 
-Here at Big Spaceship we practice Test Driven Development (TDD) which is where you write a test before you write enough code to fulfill that test and then refactor the code to make the test pass. This process is repeated until the feature is complete. Each component built should have proper Unit tests as well as Acceptance tests verifying the expected functionality of the compoonent. Testing utilities such as [Enzyme](https://github.com/airbnb/enzyme) for React, [Vue Test Utils](https://github.com/vuejs/vue-test-utils) for Vue, and [Karma](https://karma-runner.github.io/2.0/index.html) for Angular are integrated to make it easier to assert, manipulate, and traverse a components output.
+Here at Big Spaceship we practice Test Driven Development (TDD) which is where you write a test before you write enough code to fulfill that test and then refactor the code to make the test pass. This process is repeated until the feature is complete. Each component built should have proper Unit tests as well as Acceptance tests verifying the expected functionality of the compoonent. Testing utilities such as [Enzyme](https://github.com/airbnb/enzyme) for React, [Vue Test Utils](https://github.com/vuejs/vue-test-utils) for Vue, and [Karma](https://karma-runner.github.io/2.0/index.html) for Angular are integrated to make it easier to assert, manipulate, and traverse a components output. Using coverage tools built into the testing frameworks offer a table with percentages of code that is covered by tests and what lines of code are missing testing. Each file should aim to have complete coverage.
 
 React & Vue
 
@@ -176,6 +176,7 @@ describe("Sign Up Failure state", () => {
 
 - [Webpack](https://webpack.js.org/)
 - [Babel](https://babeljs.io/)
+- [Parcel](https://parceljs.org/)
 
 ## Files to Include in all projects
 
