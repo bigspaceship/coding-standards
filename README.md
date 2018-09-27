@@ -11,23 +11,23 @@ Coding standards for the Big Spaceship Technology Team
 
 - We write semantic markup by selecting and using HTML tags properly, and by selecting tags that convey something about the information marked by the tags. There are elements in HTML that are semantic and elements that are non-semantic. Examples of non-semantic elements are div and span.
 
-|                           |                                                   |	
-| ------------------------- |---------------------------------------------------|
-| Document structure tags   | header, footer, main, nav , section , article     |
-| Textual meaning tags      | h1 - h6 , strong , mark , cite, blockquote , time |
-| Media type tags           | audio , video , picture                           |
-| Correlation tags          | ul , figure , figcaption , address                |
+|                         |                                                   |
+| ----------------------- | ------------------------------------------------- |
+| Document structure tags | header, footer, main, nav , section , article     |
+| Textual meaning tags    | h1 - h6 , strong , mark , cite, blockquote , time |
+| Media type tags         | audio , video , picture                           |
+| Correlation tags        | ul , figure , figcaption , address                |
 
 you can learn more about all these tags [here](https://html.com/semantic-markup/)
 
 ---
+
 #### Accessible Rich Internet Applications (ARIA)
+
 - These are a set of attributes to make content more accessible. WAI-ARIA roles, states, and properties are available in a number of machine-readable formats to support validation of content using WAI-ARIA attributes.
 
 - here is a list of [roles](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques#Roles)
-- here is the list for [states and properties](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques#States_and_properties) 
-
-
+- here is the list for [states and properties](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques#States_and_properties)
 
 ### CSS/SCSS
 
@@ -70,6 +70,7 @@ you can learn more about all these tags [here](https://html.com/semantic-markup/
 - For more general rules including usage of helpers and examples of nested variants, see [rcss](http://rscss.io/)
 
 ### Icon Declarations
+
 - Create an Icons component that includes an SVG
 - Within the SVG reference all the icons with their respective symbol tags (which includes the paths)
 - For each symbol use naming convention of id="icon-{icon-name}" (see code block below)
@@ -91,9 +92,12 @@ you can learn more about all these tags [here](https://html.com/semantic-markup/
     </defs>
   </svg>
 ```
+
 USAGE:
+
 - In the template create an SVG element with a child USE with an xlink:href attribute referring to the id of the symbol referenced in your Icons component
-```
+
+```html
 <svg class="icon icon-up-down-arrow">
   <use xlink:href="#icon-up-down-arrow"/>
 </svg>
@@ -225,18 +229,57 @@ body {
 
 ## Testing
 
+Here at Big Spaceship we practice Test Driven Development (TDD) which is where you write a test before you write enough code to fulfill that test and then refactor the code to make the test pass. This process is repeated until the feature is complete. Each component built should have proper Unit tests as well as Acceptance tests verifying the expected functionality of the compoonent. Testing utilities such as [Enzyme](https://github.com/airbnb/enzyme) for React, [Vue Test Utils](https://github.com/vuejs/vue-test-utils) for Vue, and [Karma](https://karma-runner.github.io/2.0/index.html) for Angular are integrated to make it easier to assert, manipulate, and traverse a components output. Using coverage tools built into the testing frameworks offer a table with percentages of code that is covered by tests and what lines of code are missing testing. Each file should aim to have complete coverage.
+
+React & Vue
+
 - [Jest](https://facebook.github.io/jest/)
+
+Angular (comes with testing by default using Angular CLI)
+
+- [Jasmine & Karma](https://angular.io/guide/testing)
+
+### Unit Testing
+
+The purpose of unit testing is to ensure the smallest bigs of your code function independentl as expected. The first thing we do is describe the series of tests we're going to run by using `describe`. This creates a group of tests (a suite) related to a particular area of the application. Next, we write our actual tests. Using the `it` function, we write the feature or piece of functionality we are testing. We then write our test assertion, which is where we test if our code function as we expect.
+
+```javascript
+describe("Calculator Operations", () => {
+  it("Should add two numbers", () => {
+    Calculator.init();
+    const result = Calculator.addNumbers(7, 3);
+    expect(result).toBe(10);
+  });
+});
+```
+
+### Acceptance Testing
+
+Acceptance tests go through the running component and ensure designated actions, user inputs and user flows are completable and functioning. The structure looks very similar to unit tests, define a suite with `describe`, then write out test within the `it` function, then execute some code and check its outcome.
+
+```javascript
+describe("Sign Up Failure state", () => {
+  it("Shouldn't allow signup with invalid information", () => {
+    const page = visit("/home");
+    page.fill_in("input[name='email']", "Not An Email");
+    page.click("button[type=submit]");
+    page.click("button[type=submit]");
+    expect(page.find("#signupError").hasClass("hidden")).toBeFalsy();
+  });
+});
+```
 
 ## Permissable Libraries
 
 - [Vue](https://vuejs.org/)
 - [React](https://reactjs.org/)
-- [Next.js](https://github.com/zeit/next.js/)
+- [Angular](https://angular.io/)
 
 ## Recommended Tools
 
 - [Webpack](https://webpack.js.org/)
 - [Babel](https://babeljs.io/)
+- [Parcel](https://parceljs.org/)
 
 ## Files to Include in all projects
 
