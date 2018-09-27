@@ -37,13 +37,47 @@ you can learn more about all these tags [here](https://html.com/semantic-markup/
 - Autoprefixer
 - Make use of mixins for repeated styles across components
 
+### CSS Naming Convention
+- Components
+  - At least 2 words separated by dashes
+- Elements
+  - 1 word class declaraction
+  - Use syntax below for child selectors if possible. This is a more specific way of targeting the child elements  
+  ```
+  .search-form {
+    > .field { /* ... */ }
+    > .action { /* ... */ }
+  }
+  ```
+  - Avoid tag selectors, reference by className
+- Variants
+  - Nested and prefixed using a dash
+  ```
+  .like-button {
+    &.-wide { /* ... */ }
+    &.-short { /* ... */ }
+  }
+  ```
+  - Use @extends to reference nested variants, this will keep the HTML cleaner and CSS more dynamic for reusable components
+  ```
+  .search-form {
+    > .submit {
+      @extend .search-button;
+      @extend .search-button.-red;
+    }
+  }
+  ```
+- For more general rules including usage of helpers and examples of nested variants, see [rcss](http://rscss.io/)
+
 ### Icon Declarations
 
 - Create an Icons component that includes an SVG
 - Within the SVG reference all the icons with their respective symbol tags (which includes the paths)
 - For each symbol use naming convention of id="icon-{icon-name}" (see code block below)
+- To generate SVG symbols use [Icomoon](https://icomoon.io/app/#/select)
+- For edge-case browser support (IE, Opera, etc.) use [svg4everybody](https://github.com/jonathantneal/svg4everybody) for polyfills
 
-```html
+```
   <svg style="position: absolute; width: 0; height: 0; overflow: hidden;" version="1.1" xmlns="http://www.w3.org/2000/svg">
     <defs>
       <symbol id="icon-search-icon" viewBox="0 0 30 32">
@@ -69,6 +103,22 @@ USAGE:
 </svg>
 ```
 
+### Commenting Standards
+- Comments should typically answer the 'Why?' and not necessarily the 'How?'
+- Follow the ideals of 'Good Code Explains Itself', but comments are always necessary in more complex scenarios, especially when moving data between components
+- Single-line syntax:
+```
+// single line comments here!
+```
+- Multi-line syntax:
+```
+/*
+Hey there. There's way too much to put on this one line,
+So I've moved to this next line as a way of keeping
+this declaration more legible. More coding standards
+to follow below!
+*/
+```
 ## Font Declarations & Fallback Fonts
 
  - Use @font-face declarations to define a custom font-family and its properties such as name, location, and style characteristics 
@@ -86,7 +136,7 @@ USAGE:
   src: local('Some Custom Font'),
        url('fonts/custom.woff2') format('woff2'), 
        url('fonts/custom.woff') format('woff')
-}
+ }
  ```
 - In the case that custom fonts fail to load, use web fonts linked offsite to Google Fonts. Lastly, default to system fonts
 ```
@@ -119,6 +169,7 @@ body {
 <meta name="twitter:title" content="Page Titles">
 <meta name="twitter:description" content="Description of the page content">
 <meta name="twitter:image" content="/path/to/image.png">
+
 ```
 
 ### Javascript
