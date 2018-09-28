@@ -267,14 +267,17 @@ describe("Calculator Operations", () => {
 
 Acceptance tests go through the running component and ensure designated actions, user inputs and user flows are completable and functioning. The structure looks very similar to unit tests, define a suite with `describe`, then write out test within the `it` function, then execute some code and check its outcome.
 
+example using enzyme:
+
 ```javascript
 describe("Sign Up Failure state", () => {
   it("Shouldn't allow signup with invalid information", () => {
-    const page = visit("/home");
-    page.fill_in("input[name='email']", "Not An Email");
-    page.click("button[type=submit]");
-    page.click("button[type=submit]");
-    expect(page.find("#signupError").hasClass("hidden")).toBeFalsy();
+    const wrapper = shallow(<Home />);
+    wrapper
+      .find("input[name='email']")
+      .simulate("change", { target: { value: "Not An Email" } });
+    wrapper.find("button[type=submit]").simulate("submit");
+    expect(wrapper.find("#signupError").hasClass("hidden")).toBeFalsy();
   });
 });
 ```
