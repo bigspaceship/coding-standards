@@ -31,39 +31,40 @@ you can learn more about all these tags [here](https://html.com/semantic-markup/
 
 ### CSS/SCSS
 
+[Big Spaceship CSS/SCSS Style Guide](https://github.com/bigspaceship/css)
+
 - SCSS preferred
 - 3 level nesting limit
 - Custom SCSS variables file (media queries and color pallete)
-- Autoprefixer
 - Make use of mixins for repeated styles across components
 
 ### CSS Naming Convention
+
 - Components
   - At least 2 words separated by dashes
 - Elements
   - 1 word class declaraction
-  - Use syntax below for child selectors if possible. This is a more specific way of targeting the child elements  
-  ```
+  - Use syntax below for child selectors if possible. This is a more specific way of targeting the child elements
+  ```scss
   .search-form {
-    > .field { /* ... */ }
-    > .action { /* ... */ }
+    > .field {
+      /* ... */
+    }
+    > .action {
+      /* ... */
+    }
   }
   ```
   - Avoid tag selectors, reference by className
 - Variants
   - Nested and prefixed using a dash
-  ```
+  ```scss
   .like-button {
-    &.-wide { /* ... */ }
-    &.-short { /* ... */ }
-  }
-  ```
-  - Use @extends to reference nested variants, this will keep the HTML cleaner and CSS more dynamic for reusable components
-  ```
-  .search-form {
-    > .submit {
-      @extend .search-button;
-      @extend .search-button.-red;
+    &.-wide {
+      /* ... */
+    }
+    &.-short {
+      /* ... */
     }
   }
   ```
@@ -77,7 +78,7 @@ you can learn more about all these tags [here](https://html.com/semantic-markup/
 - To generate SVG symbols use [Icomoon](https://icomoon.io/app/#/select)
 - For edge-case browser support (IE, Opera, etc.) use [svg4everybody](https://github.com/jonathantneal/svg4everybody) for polyfills
 
-```
+```html
   <svg style="position: absolute; width: 0; height: 0; overflow: hidden;" version="1.1" xmlns="http://www.w3.org/2000/svg">
     <defs>
       <symbol id="icon-search-icon" viewBox="0 0 30 32">
@@ -104,14 +105,18 @@ USAGE:
 ```
 
 ### Commenting Standards
+
 - Comments should typically answer the 'Why?' and not necessarily the 'How?'
 - Follow the ideals of 'Good Code Explains Itself', but comments are always necessary in more complex scenarios, especially when moving data between components
 - Single-line syntax:
-```
+
+```javascript
 // single line comments here!
 ```
+
 - Multi-line syntax:
-```
+
+```javascript
 /*
 Hey there. There's way too much to put on this one line,
 So I've moved to this next line as a way of keeping
@@ -119,31 +124,36 @@ this declaration more legible. More coding standards
 to follow below!
 */
 ```
+
 ## Font Declarations & Fallback Fonts
 
- - Use @font-face declarations to define a custom font-family and its properties such as name, location, and style characteristics 
- - Use font-display property and preload to control font loading behavior and reduce FOIT and FOUT. Font-display is currently not supported on IE, Edge, Opera and Android and preload is not supported on IE, Firefox, Opera and only partially on Edge. 
-  ```
-  <link rel="preload" href="/fonts/custom.woff2" as="font" type="font/woff2" crossorigin>
-  ```
- - Aiming to support modern browsers, we use woff and woff2 formats to offer a practical level of browser support. Woff2 is supported in all browsers except IE11, Opera and Android, default to woff after
- ```
- @font-face {
-  font-family: 'Some Custom Font';
+- Use @font-face declarations to define a custom font-family and its properties such as name, location, and style characteristics
+- Use font-display property and preload to control font loading behavior and reduce FOIT and FOUT. Font-display is currently not supported on IE, Edge, Opera and Android and preload is not supported on IE, Firefox, Opera and only partially on Edge.
+
+```html
+<link rel="preload" href="/fonts/custom.woff2" as="font" type="font/woff2" crossorigin>
+```
+
+- Aiming to support modern browsers, we use woff and woff2 formats to offer a practical level of browser support. Woff2 is supported in all browsers except IE11, Opera and Android, default to woff after
+
+```scss
+@font-face {
+  font-family: "Some Custom Font";
   font-style: normal;
   font-weight: normal;
   font-display: auto;
-  src: local('Some Custom Font'),
-       url('fonts/custom.woff2') format('woff2'), 
-       url('fonts/custom.woff') format('woff')
- }
- ```
-- In the case that custom fonts fail to load, use web fonts linked offsite to Google Fonts. Lastly, default to system fonts
+  src: local("Some Custom Font"), url("fonts/custom.woff2") format("woff2"), url("fonts/custom.woff")
+      format("woff");
+}
 ```
+
+- In the case that custom fonts fail to load, use web fonts linked offsite to Google Fonts. Lastly, default to system fonts
+
+```scss
 @import url(//fonts.googleapis.com/css?family=Open+Sans);
 
 body {
-  font-family: 'Some Custom Font', 'Open Sans', Tahoma;
+  font-family: "Some Custom Font", "Open Sans", Tahoma;
 }
 ```
 
@@ -155,7 +165,8 @@ body {
   - Meta description - unique description of the page
   - Viewport - specifies viewport to control width and scaling for responsive design
   - Social meta tags - not required but can be included to enhance how the page displayed when shared on social media (Facebook uses Open Graph/Twitter uses Twitter Cards)
-```
+
+```html
   <!-- Relevant tags for OG -->
 <meta property="og:title" content="Page Title" />
 <meta property="og:description" content="Page content description" />
@@ -169,12 +180,11 @@ body {
 <meta name="twitter:title" content="Page Titles">
 <meta name="twitter:description" content="Description of the page content">
 <meta name="twitter:image" content="/path/to/image.png">
-
 ```
 
 ### Javascript
 
-- AirBnb EsLint
+[Javascript Style Guide](https://github.com/bigspaceship/javascript)
 
 ## Project Setup
 
@@ -286,6 +296,15 @@ describe("Sign Up Failure state", () => {
 - variables.scss
 - .babelrc
 - .eslintrc
+
+## File Naming Conventions
+
+File names should, in general, describe what the code within the file does or what the exports of the file are within no more than three words.
+For JavaScript files not within a framework the default naming convention will be to use camelCase. When developing within a framework default to the style guides defined below:
+
+- [React](https://github.com/airbnb/javascript/tree/master/react#naming)
+- [Vue](https://vuejs.org/v2/style-guide/#Component-files-strongly-recommended)
+- [Angular](https://angular.io/guide/styleguide#naming)
 
 ## Deployment Practice
 
