@@ -92,6 +92,14 @@ you can learn more about all these tags [here](https://html.com/semantic-markup/
 
 - [AirBnB EsLint](https://github.com/bigspaceship/javascript)
 
+### Typescript Linitng
+- Angular usually sets up a tslint file by defualt but in this repo we have a custom [one](https://github.com/bigspaceship/coding-standards/tree/feature/ts-lint/linting-formatting/angular)
+- At Big Spaceship whenever working on a Angular application we use the following tools for ensuring a proper lint environment. 
+  - [TSLint](https://palantir.github.io/tslint/)
+  - [Prettier](https://prettier.io/)
+  - And to bind the two together [tslint-config-prettier](https://github.com/alexjoverm/tslint-config-prettier)
+ - Since our code editor of choice is currently VS Code, [this tool](https://marketplace.visualstudio.com/items?itemName=eg2.tslint) is what we recommend for this IDE.
+
 ## Testing
 
 - [Jest](https://facebook.github.io/jest/)
