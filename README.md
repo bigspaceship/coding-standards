@@ -309,6 +309,10 @@ For JavaScript files not within a framework the default naming convention will b
 - [Vue](https://vuejs.org/v2/style-guide/#Component-files-strongly-recommended)
 - [Angular](https://angular.io/guide/styleguide#naming)
 
+## Performance Auditing
+
+When building complex web applications we use lots of great npm packages. Some of these packages can be quite large and can slow down load times. We should conscious of what packages are installed and implemented in each component in order to achieve the best performance. Always make sure to specify development dependencies vs production dependencies when installing npm packages and if using webpack make use of the [webpack bundle analyzer](https://www.npmjs.com/package/webpack-bundle-analyzer). Ther are lots of other tools that can be used for performance Auditing such as Lighthouse and Pagespeed insights defined [here](https://developers.google.com/web/fundamentals/performance/audit/) by google.
+
 ## Deployment Practice
 
 - Use environment variables for api secrets and tokens
