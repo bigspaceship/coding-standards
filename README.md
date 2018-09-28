@@ -237,6 +237,14 @@ body {
 
 - [AirBnB EsLint](https://github.com/bigspaceship/javascript)
 
+### Typescript Linting
+- Angular usually sets up a tslint file by defualt but in this repo we have a custom [one](https://github.com/bigspaceship/coding-standards/tree/feature/ts-lint/linting-formatting/angular)
+- At Big Spaceship whenever working on a Angular application we use the following tools for ensuring a proper lint environment. 
+  - [TSLint](https://palantir.github.io/tslint/)
+  - [Prettier](https://prettier.io/)
+  - And to bind the two together [tslint-config-prettier](https://github.com/alexjoverm/tslint-config-prettier)
+ - Since our code editor of choice is currently VS Code, [this tool](https://marketplace.visualstudio.com/items?itemName=eg2.tslint) is what we recommend for this IDE.
+
 ## Testing
 
 Here at Big Spaceship we practice Test Driven Development (TDD) which is where you write a test before you write enough code to fulfill that test and then refactor the code to make the test pass. This process is repeated until the feature is complete. Each component built should have proper Unit tests as well as Acceptance tests verifying the expected functionality of the compoonent. Testing utilities such as [Enzyme](https://github.com/airbnb/enzyme) for React, [Vue Test Utils](https://github.com/vuejs/vue-test-utils) for Vue, and [Karma](https://karma-runner.github.io/2.0/index.html) for Angular are integrated to make it easier to assert, manipulate, and traverse a components output. Using coverage tools built into the testing frameworks offer a table with percentages of code that is covered by tests and what lines of code are missing testing. Each file should aim to have complete coverage.
