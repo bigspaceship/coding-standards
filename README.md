@@ -92,7 +92,7 @@ you can learn more about all these tags [here](https://html.com/semantic-markup/
 
 - [AirBnB EsLint](https://github.com/bigspaceship/javascript)
 
-### Typescript Linitng
+### Typescript Linting
 - Angular usually sets up a tslint file by defualt but in this repo we have a custom [one](https://github.com/bigspaceship/coding-standards/tree/feature/ts-lint/linting-formatting/angular)
 - At Big Spaceship whenever working on a Angular application we use the following tools for ensuring a proper lint environment. 
   - [TSLint](https://palantir.github.io/tslint/)
