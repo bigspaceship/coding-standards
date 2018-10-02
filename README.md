@@ -146,6 +146,39 @@ USAGE:
 
 [Big Spaceship Javascript Style Guide](https://github.com/bigspaceship/javascript)
 
+### Global variable declarations
+
+An interesting practice that Big Spaceship is trying to implement is the use of UPPERCASE name for variables which are global within a component, especially one with a plethora of methods.
+
+This enables to easily spot a global variable, which a number of functions may rely on.
+
+In the example below, we can quickly identify which variables are global vs which ones are within the local scope.
+
+```javascript
+this.SceneConstructor.init = () => {
+  let localVaraible = 0;
+  // Calculate the width and height of the canvas container
+  this.MAIN_ELEMENT = document.getElementById("clip-area");
+  this.CONTAINERWIDTH = this.MAIN_ELEMENT.offsetWidth;
+  this.CONTAINERHEIGHT = this.MAIN_ELEMENT.offsetHeight;
+
+  if (this.CONTAINERHEIGHT > 1920) {
+    localVaraible = 1;
+  } else {
+  }
+  // Build the scene
+  buildRender();
+  this.SceneHelpers.createPhysicsWorld();
+  buildScene(localVaraible);
+  buildCamera();
+  raycaster();
+
+  // Calculate the width and height of the canvas
+  this.CANVASWIDTH = this.SceneHelpers.visibleWidthAtZDepth(-1);
+  this.CANVASHEIGHT = this.SceneHelpers.visibleHeightAtZDepth(-1);
+};
+```
+
 ## Project Setup
 
 - Use BSS-CLI Tool
