@@ -4,19 +4,69 @@ Coding standards for the Big Spaceship Technology Team
 
 ## General Practice
 
-- Soft Tabs (2 spaces)
-- Comments
+- Name projects with dashes, not underscores, be concise for the title of the repo
+- Create Github repo with access to all Big Spaceship team members
 
-### HTML
+### Commenting Standards
+
+- Comments should typically answer the 'Why?' and not necessarily the 'How?'
+- Follow the ideals of 'Good Code Explains Itself', but comments are always necessary in more complex scenarios, especially when moving data between components
+- Single-line syntax:
+
+```javascript
+// single line comments here!
+```
+
+- Multi-line syntax:
+
+```javascript
+/*
+Hey there. There's way too much to put on this one line,
+So I've moved to this next line as a way of keeping
+this declaration more legible. More coding standards
+to follow below!
+*/
+```
+
+## Files to Include in all projects
+
+- variables.scss
+- .eslintrc /.tslint
+
+## File Naming Conventions
+
+File names should, in general, describe what the code within the file does or what the exports of the file are within no more than three words.
+For JavaScript files not within a framework the default naming convention will be to use camelCase. When developing within a framework default to the style guides defined below:
+
+- [React](https://github.com/airbnb/javascript/tree/master/react#naming)
+- [Vue](https://vuejs.org/v2/style-guide/#Component-files-strongly-recommended)
+- [Angular](https://angular.io/guide/styleguide#naming)
+
+## Recommended Build Tools
+
+- [Webpack](https://webpack.js.org/)
+- [Babel](https://babeljs.io/)
+- [Parcel](https://parceljs.org/)
+
+## Performance Auditing
+
+When building complex web applications we use lots of great npm packages. Some of these packages can be quite large and can slow down load times. We should conscious of what packages are installed and implemented in each component in order to achieve the best performance. Always make sure to specify development dependencies vs production dependencies when installing npm packages and if using webpack make use of the [webpack bundle analyzer](https://www.npmjs.com/package/webpack-bundle-analyzer). Ther are lots of other tools that can be used for performance Auditing such as Lighthouse and Pagespeed insights defined [here](https://developers.google.com/web/fundamentals/performance/audit/) by google.
+
+## Deployment Practice
+
+- Use environment variables for api secrets and tokens
+- Minify and Uglify code and build process
+
+## HTML
 
 - We write semantic markup by selecting and using HTML tags properly, and by selecting tags that convey something about the information marked by the tags. There are elements in HTML that are semantic and elements that are non-semantic. Examples of non-semantic elements are div and span.
 
-|                         |                                                   |
-| ----------------------- | ------------------------------------------------- |
-| Document structure tags | header, footer, main, nav , section , article     |
-| Textual meaning tags    | h1 - h6 , strong , mark , cite, blockquote , time |
-| Media type tags         | audio , video , picture                           |
-| Correlation tags        | ul , figure , figcaption , address                |
+|                         |                                                      |
+| ----------------------- | ---------------------------------------------------- |
+| Document structure tags | header, footer, main, nav , section , article        |
+| Textual meaning tags    | h1 - h6 , p, strong , mark , cite, blockquote , time |
+| Media type tags         | audio , video , picture                              |
+| Correlation tags        | ul , figure , figcaption , address                   |
 
 you can learn more about all these tags [here](https://html.com/semantic-markup/)
 
@@ -28,47 +78,6 @@ you can learn more about all these tags [here](https://html.com/semantic-markup/
 
 - here is a list of [roles](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques#Roles)
 - here is the list for [states and properties](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques#States_and_properties)
-
-### CSS/SCSS
-
-[Big Spaceship CSS/SCSS Style Guide](https://github.com/bigspaceship/css)
-
-- SCSS preferred
-- 3 level nesting limit
-- Custom SCSS variables file (media queries and color pallete)
-- Make use of mixins for repeated styles across components
-
-### CSS Naming Convention
-
-- Components
-  - At least 2 words separated by dashes
-- Elements
-  - 1 word class declaraction
-  - Use syntax below for child selectors if possible. This is a more specific way of targeting the child elements
-  ```scss
-  .search-form {
-    > .field {
-      /* ... */
-    }
-    > .action {
-      /* ... */
-    }
-  }
-  ```
-  - Avoid tag selectors, reference by className
-- Variants
-  - Nested and prefixed using a dash
-  ```scss
-  .like-button {
-    &.-wide {
-      /* ... */
-    }
-    &.-short {
-      /* ... */
-    }
-  }
-  ```
-- For more general rules including usage of helpers and examples of nested variants, see [rcss](http://rscss.io/)
 
 ### Icon Declarations
 
@@ -104,60 +113,7 @@ USAGE:
 </svg>
 ```
 
-### Commenting Standards
-
-- Comments should typically answer the 'Why?' and not necessarily the 'How?'
-- Follow the ideals of 'Good Code Explains Itself', but comments are always necessary in more complex scenarios, especially when moving data between components
-- Single-line syntax:
-
-```javascript
-// single line comments here!
-```
-
-- Multi-line syntax:
-
-```javascript
-/*
-Hey there. There's way too much to put on this one line,
-So I've moved to this next line as a way of keeping
-this declaration more legible. More coding standards
-to follow below!
-*/
-```
-
-## Font Declarations & Fallback Fonts
-
-- Use @font-face declarations to define a custom font-family and its properties such as name, location, and style characteristics
-- Use font-display property and preload to control font loading behavior and reduce FOIT and FOUT. Font-display is currently not supported on IE, Edge, Opera and Android and preload is not supported on IE, Firefox, Opera and only partially on Edge.
-
-```html
-<link rel="preload" href="/fonts/custom.woff2" as="font" type="font/woff2" crossorigin>
-```
-
-- Aiming to support modern browsers, we use woff and woff2 formats to offer a practical level of browser support. Woff2 is supported in all browsers except IE11, Opera and Android, default to woff after
-
-```scss
-@font-face {
-  font-family: "Some Custom Font";
-  font-style: normal;
-  font-weight: normal;
-  font-display: auto;
-  src: local("Some Custom Font"), url("fonts/custom.woff2") format("woff2"), url("fonts/custom.woff")
-      format("woff");
-}
-```
-
-- In the case that custom fonts fail to load, use web fonts linked offsite to Google Fonts. Lastly, default to system fonts
-
-```scss
-@import url(//fonts.googleapis.com/css?family=Open+Sans);
-
-body {
-  font-family: "Some Custom Font", "Open Sans", Tahoma;
-}
-```
-
-## Meta Tags
+### Meta Tags
 
 - The meta tags below are the basic tags to be included:
   - Title - title of the web page
@@ -182,19 +138,18 @@ body {
 <meta name="twitter:image" content="/path/to/image.png">
 ```
 
-### Javascript
+## CSS/SCSS
 
-[Javascript Style Guide](https://github.com/bigspaceship/javascript)
+[Big Spaceship CSS/SCSS Style Guide](https://github.com/bigspaceship/css)
+
+## Javascript
+
+[Big Spaceship Javascript Style Guide](https://github.com/bigspaceship/javascript)
 
 ## Project Setup
 
 - Use BSS-CLI Tool
 - Create a GitHub Repo with Big Spaceship Team Admin Access
-
-## Code Formatting
-
-- Prettier
-- Custom Media Queries
 
 ## Git Workflow
 
@@ -281,42 +236,6 @@ describe("Sign Up Failure state", () => {
   });
 });
 ```
-
-## Permissable Libraries
-
-- [Vue](https://vuejs.org/)
-- [React](https://reactjs.org/)
-- [Angular](https://angular.io/)
-
-## Recommended Tools
-
-- [Webpack](https://webpack.js.org/)
-- [Babel](https://babeljs.io/)
-- [Parcel](https://parceljs.org/)
-
-## Files to Include in all projects
-
-- variables.scss
-- .babelrc
-- .eslintrc
-
-## File Naming Conventions
-
-File names should, in general, describe what the code within the file does or what the exports of the file are within no more than three words.
-For JavaScript files not within a framework the default naming convention will be to use camelCase. When developing within a framework default to the style guides defined below:
-
-- [React](https://github.com/airbnb/javascript/tree/master/react#naming)
-- [Vue](https://vuejs.org/v2/style-guide/#Component-files-strongly-recommended)
-- [Angular](https://angular.io/guide/styleguide#naming)
-
-## Performance Auditing
-
-When building complex web applications we use lots of great npm packages. Some of these packages can be quite large and can slow down load times. We should conscious of what packages are installed and implemented in each component in order to achieve the best performance. Always make sure to specify development dependencies vs production dependencies when installing npm packages and if using webpack make use of the [webpack bundle analyzer](https://www.npmjs.com/package/webpack-bundle-analyzer). Ther are lots of other tools that can be used for performance Auditing such as Lighthouse and Pagespeed insights defined [here](https://developers.google.com/web/fundamentals/performance/audit/) by google.
-
-## Deployment Practice
-
-- Use environment variables for api secrets and tokens
-- Minify and Uglify code and build process
 
 ## How to improve this document
 
