@@ -179,11 +179,6 @@ this.SceneConstructor.init = () => {
 };
 ```
 
-## Project Setup
-
-- Use BSS-CLI Tool
-- Create a GitHub Repo with Big Spaceship Team Admin Access
-
 ## Git Workflow
 
 - Git Flow as a Reliable Version Control Model
