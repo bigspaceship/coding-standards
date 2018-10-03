@@ -218,7 +218,11 @@ this.SceneConstructor.init = () => {
 
 ## Linting
 
-- [AirBnB EsLint](https://github.com/bigspaceship/javascript)
+- [AirBnB ESLint](https://github.com/bigspaceship/javascript)
+- [React ESLint Installation](https://github.com/bigspaceship/javascript/tree/master/packages/eslint-config-airbnb)
+- [Vue ESLint Installation](https://medium.com/@agm1984/how-to-set-up-es-lint-for-airbnb-vue-js-and-vs-code-a5ef5ac671e8)
+  - Can Also use [Vue CLI](https://cli.vuejs.org/) to automatically install eslint for you
+- [Integrate Prettier with ESLint](https://prettier.io/docs/en/eslint.html)
 
 ## Testing
 
